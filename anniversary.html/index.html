@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #ffc0cb, #ffe6f0);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* กล่องของขวัญ */
+.gift {
+  font-size: 100px;
+  cursor: pointer;
+  margin-top: 150px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
+}
+
+/* หน้ารหัส */
+#lockScreen {
+  display: none;
+  margin-top: 100px;
+}
+
+input {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* ปุ่ม */
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #ff4d88;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* หน้าสำเร็จ */
+#success {
+  display: none;
+  margin-top: 80px;
+  color: #ff4d88;
+}
+
+.seal {
+  font-size: 80px;
+  margin-top: 20px;
+  animation: float 3s infinite;
+}
+
+@keyframes float {
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- กล่องของขวัญ -->
+<div id="giftBox" class="gift">🎁</div>
+
+<!-- ใส่รหัส -->
+<div id="lockScreen">
+  <h2>ใส่รหัสลับ 💕</h2>
+  <input id="n1" maxlength="1">
+  <input id="n2" maxlength="1">
+  <input id="n3" maxlength="1"><br>
+  <button onclick="checkCode()">ยืนยัน</button>
+</div>
+
+<!-- หน้าสำเร็จ -->
+<div id="success">
+  <h1>Happy 9 Months 💖</h1>
+  <p>
+    9 เดือนที่ผ่านมา ขอบคุณที่อยู่ข้างกันมาตลอดนะ 💕<br><br>
+    ทุกช่วงเวลาที่มีเธอ มันมีความหมายมากจริง ๆ<br>
+    เราอยากมีเธอแบบนี้ไปนาน ๆ เลยนะ 🥺💖<br><br>
+    รักเธอที่สุดเลย 💕
+  </p>
+  <div class="seal">🦭</div>
+</div>
+
+<script>
+document.getElementById("giftBox").onclick = () => {
+  document.getElementById("giftBox").style.display = "none";
+  document.getElementById("lockScreen").style.display = "block";
+}
+
+function checkCode() {
+  let code =
+    document.getElementById("n1").value +
+    document.getElementById("n2").value +
+    document.getElementById("n3").value;
+
+  if(code === "127") {
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("success").style.display = "block";
+  } else {
+    alert("รหัสไม่ถูกนะ 😝");
+  }
+}
+</script>
+
+</body>
+</html>
